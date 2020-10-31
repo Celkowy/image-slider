@@ -80,14 +80,15 @@ i {
   height: 25px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 15px 0px black;
-  opacity: 0.2;
+  box-shadow: 0 0 20px 0 black;
+  opacity: 0.4;
   cursor: pointer;
+  transition: 0.2s linear;
 }
 
 span:hover {
   opacity: 1;
-  background-color: transparent;
+  background-color: white;
 }
 
 span.active:hover {

@@ -39,7 +39,7 @@ const changeSlide = () => {
   updateAll();
  }
 
-let indexInterval = setInterval(changeSlide, time)
+let indexInterval = setInterval(changeSlide, time);
 
 const changeSladeWithKey = (event) => {
 
