@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.wrapper {
+  position: absolute;
+  width: 95%;
+  height: 95vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 25px 0px black;
+}
+
+img {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+i {
+  position: absolute;
+  color: white;
+  font-size: 32px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 54px;
+  width: 54px;
+  background-color: none;
+  opacity: 0.6;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.sright {
+  right: 5px;
+}
+
+.sleft {
+  left: 5px;
+}
+
+.arrow:hover {
+  opacity: 1;
+  background-color: transparent;
+  box-shadow: 0 0 15px 0 black;
+}
+
+.dots {
+  position: absolute;
+  display: flex;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dots span {
+  background-color: #000;
+  margin: 0 20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 15px 0px black;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.dots span.active {
+  opacity: 1;
+}
