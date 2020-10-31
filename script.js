@@ -7,9 +7,9 @@ const dots = [...document.querySelectorAll('.dots span')];
 const rightArrow = document.querySelector('.sright');
 const leftArrow = document.querySelector('.sleft');
 
-const time = 2000;
+const time = 4000;
 let active = 0;
-let numberOfSlides = 7; 
+let numberOfSlides = dots.length; 
 
 const changeDot = () => {
   const activeDot = dots.findIndex(dot => dot.classList.contains('active'));
@@ -17,32 +17,57 @@ const changeDot = () => {
     dots[active].classList.add('active');
 }
 
-const updateImg = (dot) => {
-  active = Number(dot.dataset.number);
+const updateImg = () => {
   imgSwitchList.img = `img/img${active}.jpg`;
   img.src=imgSwitchList.img;
 }
 
+const clearPause = () => {
+  clearInterval(indexInterval);
+  indexInterval = setInterval(changeSlide, time);
+}
+
+const updateAll = () => {
+  changeDot();
+  updateImg();
+  clearPause();
+}
+
+const changeSlide = () => {
+  active++;
+  if (active === numberOfSlides) active = 0;
+  updateAll();
+ }
+
+let indexInterval = setInterval(changeSlide, time)
+
+const changeSladeWithKey = (event) => {
+
+    if(event.keyCode == 37 || event.keyCode == 65) active--;
+      else if(event.keyCode == 39 || event.keyCode == 68) active++;
+    
+     if(active === numberOfSlides) active=0;
+      else if(active < 0) active = numberOfSlides - 1;
+  updateAll();
+}
+
+window.addEventListener('keydown', changeSladeWithKey);
+
 dots.forEach(dot => {
   dot.addEventListener('click', () => {
-    updateImg(dot);
-    changeDot();
+    active = Number(dot.dataset.number);
+    updateAll();
   })
 })
 
 rightArrow.addEventListener('click', () => {
   active++;
   if(active === numberOfSlides) active = 0;
-  imgSwitchList.img = `img/img${active}.jpg`;
-  img.src=imgSwitchList.img;
-  changeDot();
+  updateAll();
 })
 
 leftArrow.addEventListener('click', () => {
   active--;
   if(active === -1) active = numberOfSlides - 1;
-  imgSwitchList.img = `img/img${active}.jpg`;
-  img.src=imgSwitchList.img;
-  changeDot();
+  updateAll();
 })
-
