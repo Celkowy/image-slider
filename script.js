@@ -36,7 +36,8 @@ const updateAll = () => {
 const changeSlide = () => {
   active++;
   if (active === numberOfSlides) active = 0;
-  updateAll();
+  changeDot();
+  updateImg();
  }
 
 let indexInterval = setInterval(changeSlide, time);
