@@ -40,6 +40,7 @@ const changeSlide = () => {
   updateImg();
  }
 
+ updateImg();
 let indexInterval = setInterval(changeSlide, time);
 
 const changeSladeWithKey = (event) => {
