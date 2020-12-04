@@ -99,3 +99,11 @@ span.active:hover {
 .dots span.active {
   opacity: 1;
 }
+
+@media (max-width: 480px) {
+  .dots span {
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
